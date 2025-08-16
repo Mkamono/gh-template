@@ -1,2 +1,14 @@
 [tools]
-task = "latest"
+gh = "latest"
+terraform = "latest"
+
+[tasks.init]
+run = "cp mise.local.template.toml mise.local.toml && unset GITHUB_TOKEN && gh auth login && cd src && terraform init"
+
+[tasks.plan]
+dir = "src"
+run = "terraform plan -var \"repository=${REPOSITORY}\" -var \"visibility=${VISIBILITY}\""
+
+[tasks.apply]
+dir = "src"
+run = "terraform apply -var \"repository=${REPOSITORY}\" -var \"visibility=${VISIBILITY}\""

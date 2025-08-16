@@ -1,0 +1,4 @@
+[env]
+REPOSITORY = "<your-repository-name>"
+OWNER = "Mkamono"
+VISIBILITY = "public"
